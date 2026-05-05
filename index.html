@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carolverse OS — AI-Native Agentic Engineering Platform</title>
+<meta name="description" content="Carolverse OS is the AI-native enterprise platform for building, governing, and operating AI agents. Spec-driven agentic engineering for serious teams.">
+<style>
+:root{--bg:#0b0e14;--panel:#141821;--border:#1e2330;--text:#e6e9ef;--muted:#8a93a6;--accent:#a78bfa;--accent2:#c4b5fd}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Inter",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);background:rgba(11,14,20,0.85);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:800;letter-spacing:-0.5px;color:var(--text);text-decoration:none}
+.logo:hover{text-decoration:none}
+.logo-img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.logo-text{letter-spacing:-0.5px}
+.logo-text span{color:var(--accent)}
+nav ul{list-style:none;display:flex;gap:28px}
+nav a{color:var(--muted);font-size:14px;font-weight:500;text-decoration:none}
+nav a:hover{color:var(--text);text-decoration:none}
+.nav-cta{background:var(--accent);color:var(--bg);padding:8px 20px;border-radius:8px;font-weight:600;font-size:13px}
+.nav-cta:hover{opacity:0.9;text-decoration:none}
+
+/* hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(167,139,250,0.08),transparent)}
+.hero-tagline{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:16px;color:var(--muted);letter-spacing:0.5px;margin-bottom:24px}
+.hero-logo{width:173px;height:173px;border-radius:50%;object-fit:cover;margin-bottom:28px;box-shadow:0 12px 40px rgba(167,139,250,0.18)}
+.hero h1{font-size:clamp(36px,5.5vw,64px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:20px;max-width:760px}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:clamp(16px,2vw,20px);color:var(--muted);max-width:600px;line-height:1.7;margin-bottom:36px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{padding:14px 32px;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.btn-primary{background:var(--accent);color:var(--bg)}
+.btn-primary:hover{opacity:0.9;text-decoration:none;transform:translateY(-1px)}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--accent);text-decoration:none;transform:translateY(-1px)}
+
+/* sections */
+section{padding:100px 24px;max-width:1000px;margin:0 auto}
+.section-label{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:600;margin-bottom:12px}
+.section-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;margin-bottom:16px;line-height:1.2}
+.section-desc{font-size:17px;color:var(--muted);max-width:640px;line-height:1.7;margin-bottom:48px}
+
+/* what we do */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:border-color .2s}
+.card:hover{border-color:var(--accent)}
+.card-icon{font-size:28px;margin-bottom:14px}
+.card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;counter-reset:step}
+.step{position:relative;padding:24px 20px;background:var(--panel);border:1px solid var(--border);border-radius:12px}
+.step::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:rgba(167,139,250,0.14);color:var(--accent);font-size:14px;font-weight:700;margin-bottom:14px}
+.step h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.step p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* who we serve */
+.audiences{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.audience{padding:24px 20px;background:var(--panel);border:1px solid var(--border);border-radius:12px}
+.audience h4{font-size:15px;font-weight:700;color:var(--accent);margin-bottom:8px}
+.audience p{font-size:13px;color:var(--muted);line-height:1.5}
+
+/* stats */
+.stats{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:48px}
+.stat{text-align:center}
+.stat-num{font-size:clamp(32px,4vw,48px);font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums}
+.stat-label{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* contact / cta */
+.cta-section{text-align:center;padding:100px 24px 120px}
+.cta-section .section-title{max-width:600px;margin:0 auto 16px}
+.cta-section .section-desc{margin:0 auto 36px}
+
+/* contact form */
+.contact-form{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left}
+.form-row{display:flex;gap:12px}
+.contact-form input,.contact-form textarea{background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:14px;font-family:inherit;width:100%;outline:none;transition:border-color .2s}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent)}
+.contact-form textarea{resize:vertical;min-height:100px}
+.form-status{text-align:center;font-size:13px;color:var(--accent);opacity:0;transition:opacity .3s}
+.form-status.show{opacity:1}
+@media(max-width:640px){.form-row{flex-direction:column}}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:32px 24px;text-align:center;color:var(--muted);font-size:13px}
+footer a{color:var(--muted)}
+.footer-links{display:flex;gap:18px;justify-content:center;margin-bottom:10px;flex-wrap:wrap}
+.footer-links a{color:var(--muted);font-weight:500}
+.footer-links a:hover{color:var(--accent);text-decoration:none}
+.footer-sep{color:var(--border)}
+
+/* mobile */
+@media(max-width:640px){
+  nav{padding:0 14px;height:56px;gap:8px}
+  nav ul{display:none}
+  .logo{font-size:15px;gap:6px;min-width:0;flex:1}
+  .logo-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .logo-img{width:30px;height:30px;background:#e6e9ef;padding:1px;flex-shrink:0}
+  .nav-cta{font-size:12px;padding:9px 14px;flex-shrink:0;min-height:38px;display:inline-flex;align-items:center}
+  section{padding:60px 16px}
+  .hero{padding:96px 16px 60px}
+  .hero-logo{width:128px;height:128px;margin-bottom:22px}
+  .hero h1{font-size:34px;letter-spacing:-1px;line-height:1.15}
+  .hero p{font-size:15px;padding:0 4px}
+  .hero-tagline{font-size:14px}
+  .hero-buttons{flex-direction:column;width:100%}
+  .hero-buttons .btn{width:100%;text-align:center;padding:14px 24px;min-height:48px}
+  .cards{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .audiences{grid-template-columns:1fr}
+  .stats{gap:24px;flex-direction:column;margin-top:36px}
+  .section-title{font-size:24px}
+  .section-desc{font-size:15px}
+  .cta-section{padding:80px 16px 96px}
+  .cta-section .btn{font-size:14px !important;padding:14px 24px !important;min-height:48px;word-break:normal}
+  .contact-form input,.contact-form textarea{font-size:16px;padding:13px 14px}
+  footer{padding:24px 16px}
+  .footer-links{font-size:13px;gap:14px}
+}
+@media(max-width:380px){
+  .logo-text{font-size:14px}
+  .nav-cta{font-size:11px;padding:8px 12px}
+  .hero h1{font-size:30px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo"><img src="logo.png" alt="Carolverse OS" class="logo-img"><span class="logo-text">carolverse<span>·os</span></span></a>
+  <ul>
+    <li><a href="#what">What It Is</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#who">Who It's For</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Request Access</a>
+</nav>
+
+<!-- hero -->
+<div class="hero">
+  <img src="logo.png" alt="Carolverse OS" class="hero-logo">
+  <div class="hero-tagline">An Operating System for AI Agents</div>
+  <h1>The <span>AI-Native</span> Platform for Agentic <span>Engineering</span></h1>
+  <p>Carolverse OS is the enterprise platform for building, governing, and operating AI agents — spec-driven, audited, and production-grade from day one.</p>
+  <div class="hero-buttons">
+    <a href="#what" class="btn btn-primary">Learn More</a>
+    <a href="#contact" class="btn btn-secondary">Request Access</a>
+  </div>
+</div>
+
+<!-- what it is -->
+<section id="what">
+  <div class="section-label">What It Is</div>
+  <div class="section-title">An OS for the agents that run your business.</div>
+  <div class="section-desc">Most teams hack agents together with prompts, scripts, and hope. Carolverse OS gives you the substrate enterprises actually need — a constitution, a planner, an execution loop, and an audit trail — so agents are first-class citizens, not shadow IT.</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 3v18"/></svg></div>
+      <h3>Spec-Driven Agents</h3>
+      <p>Every agent is defined by a versioned spec — role, policies, tools, and accountability — not by a wall of prompts. Specs are auditable, reviewable, and diffable.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 8v6M2 12h6m8 0h6"/><circle cx="12" cy="12" r="4"/></svg></div>
+      <h3>Plan → Execute → Verify</h3>
+      <p>Built-in planner, orchestrator, and verifier modules. Agents propose, get gated, execute, and prove correctness — every action traceable, every decision reviewable.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Governance &amp; Audit</h3>
+      <p>Policies, escalation paths, and immutable audit logs are first-class. Compliance, security, and ops teams get the controls they expect from production systems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- how it works -->
+<section id="how">
+  <div class="section-label">How It Works</div>
+  <div class="section-title">A constitution. A planner. An execution loop.</div>
+  <div class="section-desc">Carolverse OS borrows from how real organisations work — and applies it to fleets of AI agents.</div>
+  <div class="steps">
+    <div class="step">
+      <h4>Constitute</h4>
+      <p>Define your agent organisation: roles, departments, policies, escalation paths. The constitution is the source of truth.</p>
+    </div>
+    <div class="step">
+      <h4>Spec</h4>
+      <p>Author each agent as a versioned spec — owner, mandate, tools, and droids. Reviewable like code, deployable like services.</p>
+    </div>
+    <div class="step">
+      <h4>Run</h4>
+      <p>The planner breaks work into steps, the orchestrator dispatches to droids, and verifiers gate every output before it ships.</p>
+    </div>
+    <div class="step">
+      <h4>Audit</h4>
+      <p>Every plan, action, and decision is logged. Replay any run, attribute every change, and prove compliance on demand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- who it's for -->
+<section id="who">
+  <div class="section-label">Who It's For</div>
+  <div class="section-title">For teams who treat agents as production systems.</div>
+  <div class="section-desc">Carolverse OS is built for organisations that need their agents to be governable, auditable, and reliable — not just clever.</div>
+  <div class="audiences">
+    <div class="audience">
+      <h4>Enterprise Engineering</h4>
+      <p>Build internal agentic platforms with the controls your security, compliance, and platform teams already require. No more shadow agents.</p>
+    </div>
+    <div class="audience">
+      <h4>AI Product Teams</h4>
+      <p>Ship agent-powered features faster — with a planner, orchestrator, and audit layer you don't have to build yourself.</p>
+    </div>
+    <div class="audience">
+      <h4>Operations &amp; SRE</h4>
+      <p>Treat agents like microservices. Health checks, circuit breakers, escalation, and a real on-call story — not prompt drift in a notebook.</p>
+    </div>
+    <div class="audience">
+      <h4>Compliance &amp; Risk</h4>
+      <p>Every agent action is traceable to a spec, a policy, and a decision log. Audit, review, and roll back with confidence.</p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num">Spec</div><div class="stat-label">First, not prompt-first</div></div>
+    <div class="stat"><div class="stat-num">Audit</div><div class="stat-label">Every action, traceable</div></div>
+    <div class="stat"><div class="stat-num">Govern</div><div class="stat-label">Policies as code</div></div>
+  </div>
+</section>
+
+<!-- contact form -->
+<section id="contact" class="cta-section">
+  <div class="section-label">Get in Touch</div>
+  <div class="section-title">Build agents you can actually ship.</div>
+  <div class="section-desc">Carolverse OS is in private preview. If you're an enterprise engineering, AI platform, or agent-ops leader, request access — we'd like to hear what you're building.</div>
+  <form class="contact-form" id="contactForm" onsubmit="return sendEmail(event)">
+    <div class="form-row">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+    </div>
+    <input type="text" name="company" placeholder="Company / team">
+    <input type="text" name="subject" placeholder="Subject" required>
+    <textarea name="message" rows="5" placeholder="What are you building with agents?" required></textarea>
+    <input type="text" name="_honey" autocomplete="off" tabindex="-1" style="display:none">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <button type="submit" class="btn btn-primary" style="width:100%;font-size:15px;padding:14px">Request Access</button>
+    <div id="formStatus" class="form-status"></div>
+  </form>
+</section>
+<script>
+async function sendEmail(e){
+  e.preventDefault();
+  const form = e.target;
+  const status = document.getElementById('formStatus');
+  const submit = form.querySelector('button[type="submit"]');
+  const data = new FormData(form);
+  data.append('_subject', 'Carolverse OS contact: ' + form.subject.value);
+
+  status.textContent = 'Sending...';
+  status.className = 'form-status show';
+  submit.disabled = true;
+
+  try {
+    const response = await fetch('https://formsubmit.co/ajax/ninad@denken-labs.com', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: data
+    });
+
+    if (!response.ok) throw new Error('Form submission failed');
+
+    form.reset();
+    status.textContent = 'Thanks. We will be in touch shortly.';
+  } catch (error) {
+    status.textContent = 'Sorry, the message could not be sent. Please email ninad@denken-labs.com.';
+  } finally {
+    submit.disabled = false;
+  }
+  return false;
+}
+</script>
+
+<footer>
+  <div class="footer-links">
+    <a href="https://denken-labs.com/">DenkenLabs</a>
+    <span class="footer-sep">·</span>
+    <a href="https://carolverse-os.denken-labs.com/">Carolverse OS</a>
+  </div>
+  &copy; 2026 Carolverse OS, a DenkenLabs platform. Frankfurt, Germany.
+</footer>
+
+</body>
+</html>
