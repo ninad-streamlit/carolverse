@@ -297,6 +297,19 @@ async function sendEmail(e){
   return false;
 }
 </script>
+<script>
+(function () {
+  if (window.__dlPublicVisitLogged) return;
+  window.__dlPublicVisitLogged = true;
+  var url = new URL("https://carol.denken-labs.com/auth/carol/visit-log/public");
+  url.searchParams.set("path", (location.pathname + location.search).slice(0, 512));
+  url.searchParams.set("host", location.host.slice(0, 128));
+  if (document.referrer) {
+    url.searchParams.set("referrer", document.referrer.slice(0, 512));
+  }
+  fetch(url.toString(), { mode: "no-cors", credentials: "omit", keepalive: true }).catch(function () {});
+})();
+</script>
 
 <footer>
   <div class="footer-links">
