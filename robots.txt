@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carolverse-os.denken-labs.com/sitemap.xml
