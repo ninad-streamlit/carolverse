@@ -125,6 +125,7 @@ nav a:hover{color:var(--text);text-decoration:none}
 /* sections */
 section{padding:100px 24px;max-width:1000px;margin:0 auto}
 .section-label{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--accent);font-weight:600;margin-bottom:12px}
+h2.section-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;margin-bottom:16px;line-height:1.2}
 .section-title{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;margin-bottom:16px;line-height:1.2}
 .section-desc{font-size:17px;color:var(--muted);max-width:640px;line-height:1.7;margin-bottom:48px}
 
@@ -219,7 +220,7 @@ footer a{color:var(--muted)}
 <body>
 
 <nav>
-  <a href="#" class="logo"><video src="logo.mp4" class="logo-img" autoplay loop muted playsinline preload="auto"></video><span class="logo-text">carolverse<span>·os</span></span></a>
+  <a href="#" class="logo"><video src="logo.mp4" class="logo-img" autoplay loop muted playsinline preload="auto" aria-label="Carolverse OS animated logo"></video><span class="logo-text">carolverse<span>·os</span></span></a>
   <ul>
     <li><a href="#what">What It Is</a></li>
     <li><a href="#how">How It Works</a></li>
@@ -235,10 +236,10 @@ footer a{color:var(--muted)}
 
 <!-- hero -->
 <div class="hero">
-  <video src="logo.mp4" class="hero-logo" autoplay loop muted playsinline preload="auto"></video>
+  <video src="logo.mp4" class="hero-logo" autoplay loop muted playsinline preload="auto" aria-label="Carolverse OS animated brand mark"></video>
   <div class="hero-tagline">An Operating System for AI Agents · Built in Frankfurt</div>
   <h1>The <span>Agentic AI Platform</span> for Teams That <span>Hire AI Agents</span></h1>
-  <p>Carolverse OS is an enterprise agentic AI framework — built in Frankfurt, Germany — for building, governing, and hiring AI agents that ship production work. Spec-driven, audited, and ready to deploy.</p>
+  <p>Carolverse OS is an enterprise agentic AI framework — built in Frankfurt, Germany — for building, governing, and hiring AI agents that ship production work. Spec-driven, audited, and ready to deploy. <a href="https://carol.denken-labs.com/dev/carolopedia/">Browse the full agent roster on Carolopedia →</a></p>
   <div class="hero-buttons">
     <a href="#what" class="btn btn-primary">Learn More</a>
     <a href="#contact" class="btn btn-secondary">Request Access</a>
@@ -248,7 +249,7 @@ footer a{color:var(--muted)}
 <!-- what it is -->
 <section id="what">
   <div class="section-label">What It Is</div>
-  <div class="section-title">An OS for the agents that run your business.</div>
+  <h2 class="section-title">An OS for the agents that run your business.</h2>
   <div class="section-desc">Most teams hack agents together with prompts, scripts, and hope. Carolverse OS gives you the substrate enterprises actually need — a constitution, a planner, an execution loop, and an audit trail — so agents are first-class citizens, not shadow IT.</div>
   <div class="cards">
     <div class="card">
@@ -272,23 +273,23 @@ footer a{color:var(--muted)}
 <!-- how it works -->
 <section id="how">
   <div class="section-label">How It Works</div>
-  <div class="section-title">A constitution. A planner. An execution loop.</div>
-  <div class="section-desc">Carolverse OS borrows from how real organisations work — and applies it to fleets of AI agents.</div>
+  <h2 class="section-title">A constitution. A planner. An execution loop.</h2>
+  <div class="section-desc">Carolverse OS borrows from how real organisations work — and applies it to fleets of AI agents. <a href="https://carol.denken-labs.com/dev/carolopedia/">See how each agent fits together →</a></div>
   <div class="steps">
     <div class="step">
-      <h4>Constitute</h4>
+      <h3>Constitute</h3>
       <p>Define your agent organisation: roles, departments, policies, escalation paths. The constitution is the source of truth.</p>
     </div>
     <div class="step">
-      <h4>Spec</h4>
+      <h3>Spec</h3>
       <p>Author each agent as a versioned spec — owner, mandate, tools, and droids. Reviewable like code, deployable like services.</p>
     </div>
     <div class="step">
-      <h4>Run</h4>
+      <h3>Run</h3>
       <p>The planner breaks work into steps, the orchestrator dispatches to droids, and verifiers gate every output before it ships.</p>
     </div>
     <div class="step">
-      <h4>Audit</h4>
+      <h3>Audit</h3>
       <p>Every plan, action, and decision is logged. Replay any run, attribute every change, and prove compliance on demand.</p>
     </div>
   </div>
@@ -297,23 +298,23 @@ footer a{color:var(--muted)}
 <!-- who it's for -->
 <section id="who">
   <div class="section-label">Who It's For</div>
-  <div class="section-title">For teams who treat agents as production systems.</div>
+  <h2 class="section-title">For teams who treat agents as production systems.</h2>
   <div class="section-desc">Carolverse OS is built for organisations that need their agents to be governable, auditable, and reliable — not just clever.</div>
   <div class="audiences">
     <div class="audience">
-      <h4>Enterprise Engineering</h4>
+      <h3>Enterprise Engineering</h3>
       <p>Build internal agentic platforms with the controls your security, compliance, and platform teams already require. No more shadow agents.</p>
     </div>
     <div class="audience">
-      <h4>AI Product Teams</h4>
+      <h3>AI Product Teams</h3>
       <p>Ship agent-powered features faster — with a planner, orchestrator, and audit layer you don't have to build yourself.</p>
     </div>
     <div class="audience">
-      <h4>Operations &amp; SRE</h4>
+      <h3>Operations &amp; SRE</h3>
       <p>Treat agents like microservices. Health checks, circuit breakers, escalation, and a real on-call story — not prompt drift in a notebook.</p>
     </div>
     <div class="audience">
-      <h4>Compliance &amp; Risk</h4>
+      <h3>Compliance &amp; Risk</h3>
       <p>Every agent action is traceable to a spec, a policy, and a decision log. Audit, review, and roll back with confidence.</p>
     </div>
   </div>
@@ -328,23 +329,23 @@ footer a{color:var(--muted)}
 <!-- faq -->
 <section id="faq">
   <div class="section-label">FAQ</div>
-  <div class="section-title">Hire AI agents. Run an agentic platform. From Frankfurt.</div>
+  <h2 class="section-title">Hire AI agents. Run an agentic platform. From Frankfurt.</h2>
   <div class="section-desc">Quick answers for teams evaluating agentic AI platforms in Germany and the EU.</div>
   <div class="audiences">
     <div class="audience">
-      <h4>What is an agentic AI platform?</h4>
+      <h3>What is an agentic AI platform?</h3>
       <p>An agentic AI platform gives you the substrate to build, govern, and operate AI agents at enterprise scale — not just call an LLM. Carolverse OS provides constitution, planner, execution loop, audit trail, and policies as code.</p>
     </div>
     <div class="audience">
-      <h4>Can I hire AI agents through Carolverse?</h4>
-      <p>Yes. Hire AI agents that come spec-defined with role, policies, and tools — deployable as production services with full traceability. The Frankfurt platform team supports onboarding.</p>
+      <h3>Can I hire AI agents through Carolverse?</h3>
+      <p>Yes. Hire AI agents that come spec-defined with role, policies, and tools — deployable as production services with full traceability. The Frankfurt platform team supports onboarding. <a href="https://carol.denken-labs.com/dev/carolopedia/">See the agent catalogue →</a></p>
     </div>
     <div class="audience">
-      <h4>Why an agentic platform from Frankfurt?</h4>
+      <h3>Why an agentic platform from Frankfurt?</h3>
       <p>European data residency, GDPR-native operations, and a Frankfurt-based team that speaks enterprise — useful for finance, industrial, and public-sector teams across Germany and the EU.</p>
     </div>
     <div class="audience">
-      <h4>How is this different from other agentic AI frameworks?</h4>
+      <h3>How is this different from other agentic AI frameworks?</h3>
       <p>Most agentic frameworks give you primitives. Carolverse OS gives you the OS-level substrate enterprises need: governance, audit, escalation, immutable logs, and spec-driven agents your security and compliance teams will actually approve.</p>
     </div>
   </div>
@@ -353,7 +354,7 @@ footer a{color:var(--muted)}
 <!-- contact form -->
 <section id="contact" class="cta-section">
   <div class="section-label">Get in Touch</div>
-  <div class="section-title">Build agents you can actually ship.</div>
+  <h2 class="section-title">Build agents you can actually ship.</h2>
   <div class="section-desc">Carolverse OS is in private preview. If you're an enterprise engineering, AI platform, or agent-ops leader, request access — we'd like to hear what you're building.</div>
   <form class="contact-form" id="contactForm" onsubmit="return sendEmail(event)">
     <div class="form-row">
