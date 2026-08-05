@@ -405,19 +405,11 @@ async function sendEmail(e){
   return false;
 }
 </script>
-<script>
-(function () {
-  if (window.__dlPublicVisitLogged) return;
-  window.__dlPublicVisitLogged = true;
-  var url = new URL("https://carol.denken-labs.com/auth/carol/visit-log/public");
-  url.searchParams.set("path", (location.pathname + location.search).slice(0, 512));
-  url.searchParams.set("host", location.host.slice(0, 128));
-  if (document.referrer) {
-    url.searchParams.set("referrer", document.referrer.slice(0, 512));
-  }
-  fetch(url.toString(), { mode: "no-cors", credentials: "omit", keepalive: true }).catch(function () {});
-})();
-</script>
+<!-- CAROL-INI-3689: one shared beacon, not a per-surface copy. The inline version
+     this replaces sent a single page-load with no visitor identity and no time on
+     page, so every visit here was discarded by Admin Stats, which counts only a
+     visit that reported engagement. -->
+<script src="https://carol.denken-labs.com/static/dl/visit-beacon.js?v=3689" defer></script>
 
 <footer>
   <div class="footer-links">
