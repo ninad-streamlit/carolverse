@@ -95,7 +95,7 @@ a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 
 /* nav */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);background:rgba(11,14,20,0.85);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:60px}
+nav{position:fixed;top:var(--dl-header-height,0);left:0;right:0;z-index:100;backdrop-filter:blur(16px);background:rgba(11,14,20,0.85);border-bottom:1px solid var(--border);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:60px}
 .logo{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:800;letter-spacing:-0.5px;color:var(--text);text-decoration:none}
 .logo:hover{text-decoration:none}
 .logo-img{width:36px;height:36px;border-radius:50%;object-fit:cover}
@@ -410,6 +410,10 @@ async function sendEmail(e){
      page, so every visit here was discarded by Admin Stats, which counts only a
      visit that reported engagement. -->
 <script src="https://carol.denken-labs.com/static/dl/visit-beacon.js?v=3689" defer></script>
+<!-- CAROL-INI-3959: the canonical topbar + footer, one shared script served from Carol.
+     Whoever is signed in to Carol stays signed in here; everyone else sees a sign-in
+     that returns to this page. The page's own nav sits below the canonical bar. -->
+<script src="https://carol.denken-labs.com/static/dl/global-footer.js" defer></script>
 
 <footer>
   <div class="footer-links">
